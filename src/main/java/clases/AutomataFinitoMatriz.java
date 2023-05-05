@@ -4,8 +4,9 @@ public class AutomataFinitoMatriz extends AutomataFinito{
 
     private int[][] matriz;
 
-    public AutomataFinitoMatriz(int num, int alfabeto) {
+    public AutomataFinitoMatriz(int num, int alfabeto, int[][] matriz) {
         super(num, alfabeto);
+        this.matriz = matriz;
     }
 
     public AutomataFinitoMatriz(int num, int alfabeto, boolean[] finales){
@@ -14,7 +15,7 @@ public class AutomataFinitoMatriz extends AutomataFinito{
 
     @Override
     public int transicion(int estado, int letra) {
-        return 0;
+        return matriz[estado][letra];
     }
 
 }

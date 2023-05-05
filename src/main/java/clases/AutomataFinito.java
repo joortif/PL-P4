@@ -40,6 +40,10 @@ public abstract class AutomataFinito {
         this.finales[estado] = true;
     }
     public abstract int transicion(int estado, int letra);
+    /*
+    * Recorre la cadena desde el estado que se pasa por parametro realizando transiciones y devuelve el último estado.
+    *
+    * */
     public int cierreTransicion(int estado, int[] cadena){
         for (int j : cadena) {
             if (estado == -1) {
@@ -49,6 +53,10 @@ public abstract class AutomataFinito {
         }
         return estado;
     }
+    /*
+    * Recorre la cadena por completo y comprueba que acaba en un estado final. De esta forma, devuelve cierto si la
+    * cadena pertenece al lenguaje y falso en otro caso.
+    * */
     public boolean perteneceLenguaje(int[] cadena){
         int estado = cierreTransicion(0, cadena);
         if (estado != -1){
